@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style_home.css') }}">
+  <title>Student Information Form</title>
+</head>
+<body>
+
+  <form id="studentForm" action="{{ url_for('quiz') }}" method="POST">
+    <div class="greeting">
+      <h2>Hello, {{ student_name }}</h2>
+    </div>
+    <h2>Student Information</h2>
+    <div class="interests-section">
+      <label>Areas of Interest (choose at most 3):</label>
+      <div class="checkbox-grid">
+        <label><input type="checkbox" name="interest" value="Computer">Computer and Technology</label>
+        <label><input type="checkbox" name="interest" value="CivilServices"> Civil Services</label>
+        <label><input type="checkbox" name="interest" value="MarketingSales"> Marketing & Sales</label>
+        <label><input type="checkbox" name="interest" value="Science"> Science</label>
+        <label><input type="checkbox" name="interest" value="Mathematics"> Mathematics</label>
+        <label><input type="checkbox" name="interest" value="SocialSciencesHumanities"> Social Sciences & Humanities</label>
+        <label><input type="checkbox" name="interest" value="PerformingFineArts"> Performing & Fine Arts</label>
+        <label><input type="checkbox" name="interest" value="Business"> Business</label>
+        <label><input type="checkbox" name="interest" value="FinanceAccounting"> Finance & Accounting</label>
+        <label><input type="checkbox" name="interest" value="Healthcare"> Healthcare</label>
+      </div>
+    </div>
+
+    <div class="marks-section">
+      <label>Academic Performance (Max Marks: 100):</label>
+
+      <label for="maths">Mathematics:</label>
+      <input type="number" id="maths" name="maths" placeholder="Enter your score..." required min="0" max="100">
+      <label for="science">Science:</label>
+      <input type="number" id="science" name="science" placeholder="Enter your score..." required min="0" max="100">
+      <label for="socialScience">Social Science:</label>
+      <input type="number" id="socialScience" name="socialScience" placeholder="Enter your score..." required min="0" max="100">
+      <label for="english">English:</label>
+      <input type="number" id="english" name="english" placeholder="Enter your score..." required min="0" max="100">
+      <label for="computer">Computer:</label>
+      <input type="number" id="computer" name="computer" placeholder="Enter your score..." required min="0" max="100">
+    </div>
+
+    <button type="submit">Submit Information</button>
+  </form>
+
+  <script>
+    // Function to limit checkboxes to 3
+    function limitCheckboxSelection() {
+      var checkboxes = document.querySelectorAll('input[name="interest"]');
+      var selectedCount = 0;
+      
+      checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+          if (this.checked) {
+            selectedCount++;
+            if (selectedCount > 3) {
+              this.checked = false;
+              selectedCount--;
+            }
+          } else {
+            selectedCount--;
+          }
+        });
+      });
+    }
+    
+    window.onload = limitCheckboxSelection;
+  </script>
+
+</body>
+</html>

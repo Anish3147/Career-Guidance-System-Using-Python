@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_quiz.css') }}">
+    <style>
+        .options input[type="radio"] {
+            display: none;
+        }
+
+        .options label {
+            display: inline-block;
+            width: calc(100% / 7);
+            text-align: center;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            margin: 0 15px 35px 10px;
+            font-size: 18px;
+            font-family: Georgia, serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .options input[type="radio"]+label {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+
+        .options input[type="radio"]:checked+label {
+            background-color: #4caf50;
+            color: beige;
+        }
+
+        .options label:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .question {
+            margin-bottom: 12px;
+            font-size: 22px;
+            font-family: Georgia, serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Interest Survey</h1>
+            <p>Submit a survey reflecting your level of agreement or disagreement with the provided questions, where opposed being the lowest and excited being the highest.</p>
+        </div>
+        <div class="main-content">
+            <form action="{{ url_for('interest_survey') }}" method="POST">
+                <div class="question-section">
+                    {% for index in range(questions|length) %}
+                    <div class="question">Question: {{ questions[index] }}</div>
+                    <div class="options">
+                        {% for option in options[index] %}
+                        <input type="radio" id="{{ questions[index] }}_{{ loop.index0 }}" name="{{ streams[index] }}" value="{{ loop.index0 * 25 }}">
+                        <label for="{{ questions[index] }}_{{ loop.index0 }}">{{ option }}</label>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <br>
+                <div class="button-section">
+                    <button type="submit" class="quiz-btn">Submit & Head to Results</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

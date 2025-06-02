@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_quiz.css') }}">
+    <title>Quiz Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Sections</h2>
+            <ul>
+                <li>Academic</li>
+                <li>Aptitude</li>
+                <li>Interest Survey</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div id="academic" class="section-rules">
+                <h2>Academic Section Rules</h2>
+                <p>Prepare for your academic journey! In this section, you will tackle a computer adaptive test tailored to your interests and non-interests. Answer 15 multiple-choice questions based on various academic subjects to assess your knowledge and skills.</p>
+            </div>
+            <div id="aptitude" class="section-rules">
+                <h2>Aptitude Section Rules</h2>
+                <p>Sharpen your problem-solving skills! Get ready to answer 5 aptitude questions, which may include multiple-choice questions and pattern-solving tasks. These questions will challenge your logical thinking and analytical abilities.</p>
+            </div>
+            <div id="interest-survey" class="section-rules">
+                <h2>Interest Survey Section Rules</h2>
+                <p>Discover your passions! Participate in a simple survey designed to provide better insights for our AI model. Answer 5 questions related to your interests using an agree-disagree slider. Your input will help us tailor career recommendations based on your preferences.</p>
+            </div>
+                <a href="{{ url_for('start_quiz', section='academic', question_number=0) }}" class="quiz-link">
+                    <button class="quiz-btn" type="button">Start Computer Adaptive Test</button>
+                </a>
+
+        </div>
+    </div>
+</body>
+
+</html>

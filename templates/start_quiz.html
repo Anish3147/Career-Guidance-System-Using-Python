@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_quiz.css') }}">
+    <title>Quiz Page</title>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Sections</h2>
+            <ul>
+                <li class="{% if section == 'academic' %}active{% endif %}">Academic</li>
+                <li class="{% if section == 'aptitude' %}active{% endif %}">Aptitude</li>
+                <li class="{% if section == 'interest' %}active{% endif %}">Interest Survey</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1 id="question-number">Question {{ question_number }}</h1>
+            <p id="question-text">{{ question['question'] }}</p>
+            {% if image %}
+                
+                <img src="{{ url_for('static', filename=image) }}" alt="Image Unavailable">
+                
+            {% endif %}
+            <form id="quiz-form" action="{{ url_for('next_que') }}" method="post">
+                {% for option in options %}
+                    <input type="radio" name="selected_option" value="{{ option.index }}" id="option{{ option.index }}" required>
+                    <label for="option{{ option.index }}" id="option{{ option.index }}">{{ option.text }}</label><br>
+                {% endfor %}
+                <br>
+                <button class="quiz-btn" type="submit">Submit Answer</button>
+            </form>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

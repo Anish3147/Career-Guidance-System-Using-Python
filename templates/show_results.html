@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_complete.css') }}">
+    <title>Results</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Your Results:</h1>
+        
+        <div class="result">
+            <h2>Academic Result:</h2>
+            <p>{{ academic_result }}/15</p>
+       
+        
+       
+            <h2>Aptitude Result:</h2>
+            <p>{{ aptitude_result }}/5</p>
+            
+        </div>
+        
+        <p>You have successfully completed the quiz.</p>
+        <p>Thank you for participating.</p>
+        
+        <a href="{{ url_for('show_prediction') }}" class="btn">Show Prediction</a>
+        
+    </div>
+
+</body>
+
+</html>

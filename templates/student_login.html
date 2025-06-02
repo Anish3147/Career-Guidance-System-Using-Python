@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ML powered Career guidance system - Student Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_authenticate.css') }}">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>ML powered Career guidance system</h1>
+        <h2>Student Login</h2>
+        <p class="content">First, students need to choose their interested domains and fill out their academic details. Then, they will take a computer adaptive test. Afterward, the scores will be analyzed, and an ML model will recommend an appropriate career stream.</p>
+
+        <form action="{{ url_for('student_login') }}" method="post">
+            {% if msg %}
+            <div style="color: red; margin-bottom: 10px;">{{ msg }}</div>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="email">E-mail ID:</label>
+                <input id="email" name="email" type="email" placeholder="Enter E-mail ID" required />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input id="password" name="password" type="password" placeholder="Enter Password" required />
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="link">Don't have an account? <a href="{{ url_for('student_register') }}">Register</a></p>
+    </div>
+</body>
+
+</html>

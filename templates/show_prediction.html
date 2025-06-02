@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_complete.css') }}">
+    <title>Show Prediction</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>ML Model Prediction</h1>
+
+        {% if content == "1" %}
+        <div class="science-content">
+            <h2>You can opt for the Science Stream</h2>
+            <h4>About the Science Stream:</h4>
+            <ul>
+                <li>Offers diverse career opportunities in Medicine, Engineering, Biotechnology, and other fields.</li>
+                <li>Core subjects include Physics, Chemistry, Biology, Mathematics, and Computer Science.</li>
+                <li>Requires strong analytical skills, problem-solving abilities, and a passion for discovery.</li>
+            </ul>
+            <h4>Next Steps:</h4>
+            <ul>
+                <li>Explore career opportunities in Science-related fields such as Medicine, Engineering, and Research.</li>
+                <li>Connect with mentors and professionals for guidance and mentorship.</li>
+                <li>Stay updated with the latest developments in Science by reading journals and attending seminars.</li>
+            </ul>
+        </div>
+        {% endif %}
+        {% if content == "2" %}
+        <div class="commerce-content">
+            <h2>You can opt for the Commerce Stream</h2>
+            <h4>About the Commerce Stream:</h4>
+            <ul>
+                <li>Provides pathways to careers in Accounting, Finance, Business Management, and other fields.</li>
+                <li>Core subjects include Accountancy, Economics, Business Studies, and Mathematics.</li>
+                <li>Requires strong numerical and analytical skills, as well as business acumen.</li>
+            </ul>
+            <br>
+            <h4>Next Steps:</h4>
+            <ul>
+                <li>Explore career opportunities in Commerce-related fields such as Accounting, Banking, and Finance.</li>
+                <li>Seek internships or part-time jobs to gain practical experience in the business world.</li>
+                <li>Consider pursuing professional certifications like Chartered Accountancy or Certified Financial Planner.</li>
+            </ul>
+        </div>
+        {% endif %}
+        {% if content == "3" %}
+        <div class="arts-content">
+            <h2>You can opt for the Arts Stream</h2>
+            <h4>About the Arts Stream:</h4>
+            <ul>
+                <li>Offers opportunities in fields like Literature, History, Sociology, Psychology, and more.</li>
+                <li>Core subjects include Literature, History, Geography, Political Science, and Psychology.</li>
+                <li>Requires strong communication, critical thinking, and research skills.</li>
+            </ul>
+            <h4>Next Steps:</h4>
+            <ul>
+                <li>Explore career opportunities in Arts-related fields such as Journalism, Writing, and Teaching.</li>
+                <li>Consider pursuing higher education in specialized areas of interest like Literature or History.</li>
+                <li>Engage in extracurricular activities to develop additional skills and interests.</li>
+            </ul>
+        </div>
+        {% endif %}
+
+        <a href="/home" class="btn">Return to Home</a>
+
+        <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> This prediction is not 100% accurate. Consult an expert for further guidance.</p>
+        </div>
+
+    </div>
+</body>
+
+</html>
